@@ -37,7 +37,7 @@ class State:
 
     # check whether a player has won the game, or it's a tie
     def is_end(self):
-        if self.end is not None:
+    if self.end is not None:
             return self.end
         results = []
         # check row
