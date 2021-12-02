@@ -1,0 +1,1 @@
+  -LC:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/opt/lib/python2.7/config  src/libmy_library.a -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 
