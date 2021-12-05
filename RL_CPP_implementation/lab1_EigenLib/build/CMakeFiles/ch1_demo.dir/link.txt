@@ -1,1 +1,1 @@
-/usr/bin/c++    -rdynamic CMakeFiles/ch1_demo.dir/ch1_lab.cpp.o  -o ch1_demo 
+/usr/bin/c++     CMakeFiles/ch1_demo.dir/ch1_lab.cpp.o  -o ch1_demo src/libeigen_demo_src.a 

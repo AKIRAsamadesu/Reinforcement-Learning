@@ -111,44 +111,57 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named ch1_demo
+# Target rules for targets named demo_main
 
 # Build rule for target.
-ch1_demo: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ch1_demo
-.PHONY : ch1_demo
+demo_main: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 demo_main
+.PHONY : demo_main
 
 # fast build rule for target.
-ch1_demo/fast:
-	$(MAKE) -f CMakeFiles/ch1_demo.dir/build.make CMakeFiles/ch1_demo.dir/build
-.PHONY : ch1_demo/fast
+demo_main/fast:
+	$(MAKE) -f CMakeFiles/demo_main.dir/build.make CMakeFiles/demo_main.dir/build
+.PHONY : demo_main/fast
 
-ch1_lab.o: ch1_lab.cpp.o
+#=============================================================================
+# Target rules for targets named eigen_demo_src
 
-.PHONY : ch1_lab.o
+# Build rule for target.
+eigen_demo_src: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 eigen_demo_src
+.PHONY : eigen_demo_src
+
+# fast build rule for target.
+eigen_demo_src/fast:
+	$(MAKE) -f src/CMakeFiles/eigen_demo_src.dir/build.make src/CMakeFiles/eigen_demo_src.dir/build
+.PHONY : eigen_demo_src/fast
+
+main.o: main.cpp.o
+
+.PHONY : main.o
 
 # target to build an object file
-ch1_lab.cpp.o:
-	$(MAKE) -f CMakeFiles/ch1_demo.dir/build.make CMakeFiles/ch1_demo.dir/ch1_lab.cpp.o
-.PHONY : ch1_lab.cpp.o
+main.cpp.o:
+	$(MAKE) -f CMakeFiles/demo_main.dir/build.make CMakeFiles/demo_main.dir/main.cpp.o
+.PHONY : main.cpp.o
 
-ch1_lab.i: ch1_lab.cpp.i
+main.i: main.cpp.i
 
-.PHONY : ch1_lab.i
+.PHONY : main.i
 
 # target to preprocess a source file
-ch1_lab.cpp.i:
-	$(MAKE) -f CMakeFiles/ch1_demo.dir/build.make CMakeFiles/ch1_demo.dir/ch1_lab.cpp.i
-.PHONY : ch1_lab.cpp.i
+main.cpp.i:
+	$(MAKE) -f CMakeFiles/demo_main.dir/build.make CMakeFiles/demo_main.dir/main.cpp.i
+.PHONY : main.cpp.i
 
-ch1_lab.s: ch1_lab.cpp.s
+main.s: main.cpp.s
 
-.PHONY : ch1_lab.s
+.PHONY : main.s
 
 # target to generate assembly for a file
-ch1_lab.cpp.s:
-	$(MAKE) -f CMakeFiles/ch1_demo.dir/build.make CMakeFiles/ch1_demo.dir/ch1_lab.cpp.s
-.PHONY : ch1_lab.cpp.s
+main.cpp.s:
+	$(MAKE) -f CMakeFiles/demo_main.dir/build.make CMakeFiles/demo_main.dir/main.cpp.s
+.PHONY : main.cpp.s
 
 # Help Target
 help:
@@ -157,11 +170,12 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
-	@echo "... ch1_demo"
+	@echo "... demo_main"
 	@echo "... edit_cache"
-	@echo "... ch1_lab.o"
-	@echo "... ch1_lab.i"
-	@echo "... ch1_lab.s"
+	@echo "... eigen_demo_src"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
 .PHONY : help
 
 

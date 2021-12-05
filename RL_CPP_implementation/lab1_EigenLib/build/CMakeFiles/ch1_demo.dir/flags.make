@@ -6,5 +6,5 @@ CXX_FLAGS =
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = 
+CXX_INCLUDES = -I/home/zhou/My_Code/Reinforcement-Learning/RL_CPP_implementation/lab1_EigenLib/lib -I/home/zhou/My_Code/Reinforcement-Learning/RL_CPP_implementation/lab1_EigenLib/src 
 

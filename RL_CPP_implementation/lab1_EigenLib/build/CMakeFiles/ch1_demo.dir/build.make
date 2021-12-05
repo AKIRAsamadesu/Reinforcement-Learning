@@ -90,6 +90,7 @@ ch1_demo_EXTERNAL_OBJECTS =
 
 ch1_demo: CMakeFiles/ch1_demo.dir/ch1_lab.cpp.o
 ch1_demo: CMakeFiles/ch1_demo.dir/build.make
+ch1_demo: src/libeigen_demo_src.a
 ch1_demo: CMakeFiles/ch1_demo.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/zhou/My_Code/Reinforcement-Learning/RL_CPP_implementation/lab1_EigenLib/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ch1_demo"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ch1_demo.dir/link.txt --verbose=$(VERBOSE)

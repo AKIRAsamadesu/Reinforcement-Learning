@@ -1,0 +1,12 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/zhou/My_Code/Reinforcement-Learning/RL_CPP_implementation/lab1_EigenLib/src/Demo.cpp
+lib/Demo.h
+/home/zhou/My_Code/Reinforcement-Learning/RL_CPP_implementation/lab1_EigenLib/src/lib/Demo.h
+
