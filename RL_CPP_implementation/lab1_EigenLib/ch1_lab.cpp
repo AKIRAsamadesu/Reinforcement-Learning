@@ -1,5 +1,6 @@
 /* std lib definition */
 #include <iostream>
+
 using namespace std;
 
 /* user lib definition */
