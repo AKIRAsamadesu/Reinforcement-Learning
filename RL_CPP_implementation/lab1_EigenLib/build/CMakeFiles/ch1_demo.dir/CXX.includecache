@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/zhou/My_Code/Reinforcement-Learning/RL_CPP_implementation/lab1_EigenLib/ch1_lab.cpp
+iostream
+-
+eigen3/Eigen/Dense
+-
+
