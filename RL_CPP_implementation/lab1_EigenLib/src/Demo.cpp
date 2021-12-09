@@ -186,5 +186,25 @@ void Demo4()
 void Demo5()
 {
      cout << "++++++++++ Demo5 ++++++++++" << endl;
-     
+     MatrixXf mat1(2,2);
+     mat1<<1,2,3,4;
+     cout<<mat1<<endl;
+     ArrayXXf mat2=ArrayXXf::Zero(4,5);
+     ArrayXXi mat3=ArrayXXi::Random(4,5);
+     ArrayXXi mat4=ArrayXXi::Constant(4,3,1);
+     cout<<mat2<<endl;
+     cout<<mat3<<endl;
+     cout<<mat4<<endl;
+
+     ArrayXXf mat5;
+     mat5.resize(3,2);
+     mat5.col(0).head(2)<<123,1;
+     mat5.col(1).head(3)<<3,4,5;
+     mat5.row(2).head(2)<<22,2;
+     mat5.row(2).tail(1)<<8;
+     cout<<mat5<<endl;    
+      
+     MatrixXf mat6=MatrixXf::Constant(3,4,3);
+     mat6=((MatrixXf(3,3)<<1,2,3,4,5,6,7,8,9).finished())*mat6;
+     cout<<"mat6 = \n"<<mat6<<endl;
 }
