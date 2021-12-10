@@ -256,7 +256,7 @@ void Demo7()
 
 void Demo8()
 {
-     cout << "++++++++++ Demo7 ++++++++++" << endl;
+     cout << "++++++++++ Demo8 ++++++++++" << endl;
      
      float angle=M_PI/2;
      Rotation2D<float> rot2D1(angle);//parameter must be a reference of variable. rather than a single value.
