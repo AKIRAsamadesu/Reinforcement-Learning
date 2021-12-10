@@ -34,7 +34,13 @@ int main()
     //++++++++ Code 4 ++++++++//
     // Demo4();
     //++++++++ Code 5 ++++++++//
-    Demo5();
+    // Demo5();
+    //++++++++ Code 6 ++++++++//
+    // Demo6();
+    // ++++++++ Code 7 ++++++++//
+    // Demo7();
+    // ++++++++ Code 8 ++++++++//
+    Demo8();
     cout<<"Program end!"<<endl;
     return 0;
 }

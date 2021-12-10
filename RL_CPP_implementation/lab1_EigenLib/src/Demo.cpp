@@ -163,48 +163,122 @@ void Demo4()
 {
      cout << "++++++++++ Demo4 ++++++++++" << endl;
      Matrix3f mat1;
-     mat1<<1,2,3,4,5,6,7,8,9;
+     mat1 << 1, 2, 3, 4, 5, 6, 7, 8, 9;
 
-     Matrix2f mat2=mat1.block(1,1,2,2);
-     cout<<"mat1=\n"<<mat1<<endl;
-     cout<<"mat2=\n"<<mat2<<endl;
+     Matrix2f mat2 = mat1.block(1, 1, 2, 2);
+     cout << "mat1=\n"
+          << mat1 << endl;
+     cout << "mat2=\n"
+          << mat2 << endl;
 
-     mat1.block<2,2>(0,0)=mat2;
-     cout<<"mat1=\n"<<mat1<<endl;
+     mat1.block<2, 2>(0, 0) = mat2;
+     cout << "mat1=\n"
+          << mat1 << endl;
 
-     cout<<mat1.row(2)<<endl;
-     cout<<mat1.col(2)<<endl;
-     
+     cout << mat1.row(2) << endl;
+     cout << mat1.col(2) << endl;
+
      VectorXf v1(10);
-     v1<<1,2,2,3,4,5,6,7,87,8;
-     cout<<v1.head(2)<<endl;//these funcs are only for vector
-     cout<<v1.tail(3)<<endl;
-     cout<<"6 elements start from 3th, segment:"<<v1.segment(3,6)<<endl;
-
+     v1 << 1, 2, 2, 3, 4, 5, 6, 7, 87, 8;
+     cout << v1.head(2) << endl; //these funcs are only for vector
+     cout << v1.tail(3) << endl;
+     cout << "6 elements start from 3th, segment:" << v1.segment(3, 6) << endl;
 }
 
 void Demo5()
 {
      cout << "++++++++++ Demo5 ++++++++++" << endl;
-     MatrixXf mat1(2,2);
-     mat1<<1,2,3,4;
-     cout<<mat1<<endl;
-     ArrayXXf mat2=ArrayXXf::Zero(4,5);
-     ArrayXXi mat3=ArrayXXi::Random(4,5);
-     ArrayXXi mat4=ArrayXXi::Constant(4,3,1);
-     cout<<mat2<<endl;
-     cout<<mat3<<endl;
-     cout<<mat4<<endl;
+     MatrixXf mat1(2, 2);
+     mat1 << 1, 2, 3, 4;
+     cout << mat1 << endl;
+     ArrayXXf mat2 = ArrayXXf::Zero(4, 5);
+     ArrayXXi mat3 = ArrayXXi::Random(4, 5);
+     ArrayXXi mat4 = ArrayXXi::Constant(4, 3, 1);
+     cout << mat2 << endl;
+     cout << mat3 << endl;
+     cout << mat4 << endl;
 
      ArrayXXf mat5;
-     mat5.resize(3,2);
-     mat5.col(0).head(2)<<123,1;
-     mat5.col(1).head(3)<<3,4,5;
-     mat5.row(2).head(2)<<22,2;
-     mat5.row(2).tail(1)<<8;
-     cout<<mat5<<endl;    
-      
-     MatrixXf mat6=MatrixXf::Constant(3,4,3);
-     mat6=((MatrixXf(3,3)<<1,2,3,4,5,6,7,8,9).finished())*mat6;
-     cout<<"mat6 = \n"<<mat6<<endl;
+     mat5.resize(3, 2);
+     mat5.col(0).head(2) << 123, 1;
+     mat5.col(1).head(3) << 3, 4, 5;
+     mat5.row(2).head(2) << 22, 2;
+     mat5.row(2).tail(1) << 8;
+     cout << mat5 << endl;
+
+     MatrixXf mat6 = MatrixXf::Constant(3, 4, 3);
+     mat6 = ((MatrixXf(3, 3) << 1, 2, 3, 4, 5, 6, 7, 8, 9).finished()) * mat6;
+     cout << "mat6 = \n"
+          << mat6 << endl;
+}
+
+void Demo6()
+{
+     cout << "++++++++++ Demo6 ++++++++++" << endl;
+     MatrixXi mat1;
+     mat1.resize(2,2);
+     mat1<<1,2,3,4;
+     MatrixXi::Index maxRow, maxCol;
+     mat1.maxCoeff(&maxRow, &maxCol);
+     cout << "mat1=\n" << mat1 << endl;
+     cout << "max(" << maxRow << "," << maxCol << ") is: " << mat1.maxCoeff() << endl;
+     cout << "max elements in each col:" << mat1.colwise().maxCoeff() << endl;
+     cout <<"sum of these elements:"<<mat1.colwise().maxCoeff().sum()<<endl;
+     cout <<mat1.sum()<<endl;
+}
+
+void Demo7()
+{
+     cout << "++++++++++ Demo7 ++++++++++" << endl;
+     SparseMatrix<int> smat1;
+     smat1.resize(100,100);
+     smat1.insert(50,10)=12;
+     // cout<<smat1<<endl;
+     smat1.setZero();
+
+     Triplet<int> str(1,2,3);//triplet is a structure hold (i,j,value)
+     cout<<"("<<str.row()<<","<<str.col()<<","<<str.value()<<")"<<endl;
+
+     vector<Triplet<int>> tripletList;
+     tripletList.reserve(45);//reserve 45 spaces in vector for triplet
+     for(int i=0; i<45; i++)
+     {
+          tripletList.push_back(Triplet<int>(i,10,1));//store 45 elements to tripet list (i,10,6)
+     }
+     smat1.setFromTriplets(tripletList.begin(), tripletList.end());//put value=6 to (i,10)
+     // cout<<smat1<<endl;
+
+     cout<<smat1.rows()<<endl;
+     cout<<smat1.cols()<<endl;
+     cout<<smat1.nonZeros()<<endl;
+     
+}
+
+void Demo8()
+{
+     cout << "++++++++++ Demo7 ++++++++++" << endl;
+     
+     float angle=M_PI/2;
+     Rotation2D<float> rot2D1(angle);//parameter must be a reference of variable. rather than a single value.
+     AngleAxis<float> rot3D1(angle, Vector3f::UnitX());//param2 is a normalized vector
+     Quaternion<float> rotQuat1(AngleAxis<float>(angle, Vector3f::UnitX()));
+
+     cout<<"rot2D: \n"<<rot2D1.matrix()<<endl;//All the Rotations don't reload operator "<<", we should use it's matrix() member func to get it's real matrix. 
+     cout<<"rot3D: \n"<<rot3D1.matrix()<<endl;//matrix() is inherited from RotationBase class
+     cout<<"rotQuat: \n"<<rotQuat1.matrix()<<endl;
+
+     float x1=1,y1=2,z1=10;
+     MatrixXf mat1=Scaling(x1,y1,z1);//scaling matrix (enlarge or shrink)
+     cout<<mat1<<endl;//Scaling() result should be loaded into a variable. return value of scaling can't be used directly
+
+     float x2=3,y2=4;
+     Translation<float, 2> trans1(x2,y2);
+     cout<<trans1.translation()<<endl;//return m_coeff member.
+
+     Vector3f v1(6,6,7);
+     Translation3f trans2(v1);
+     cout<<v1<<endl;
+
+     Transform<float,3,Affine> trans3=mat1*trans2*rotQuat1;
+     cout<<trans3.matrix()<<endl;
 }

@@ -11,7 +11,7 @@ iostream
 -
 eigen3/Eigen/Eigen
 -
-eigen3/Eigen/Core
+vector
 -
 
 /home/zhou/My_Code/Reinforcement-Learning/RL_CPP_implementation/lab1_EigenLib/src/Demo.cpp
