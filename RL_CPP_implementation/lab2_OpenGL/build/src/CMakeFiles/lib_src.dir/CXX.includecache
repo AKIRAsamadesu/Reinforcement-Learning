@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/zhou/Desktop/Reinforcement-Learning/RL_CPP_implementation/lab2_OpenGL/lib/DemoSrc.h
+iostream
+-
+
+/home/zhou/Desktop/Reinforcement-Learning/RL_CPP_implementation/lab2_OpenGL/src/DemoSrc.cpp
+../lib/DemoSrc.h
+/home/zhou/Desktop/Reinforcement-Learning/RL_CPP_implementation/lab2_OpenGL/lib/DemoSrc.h
+
